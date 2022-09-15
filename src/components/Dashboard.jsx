@@ -4,34 +4,61 @@ import { Box, Slider, Typography } from '@mui/material';
 import { alpha, styled } from '@mui/material/styles';
 import { useEffect } from 'react';
 import {
-    getArtistApi,
-    getArtistSongsApi,
-    getSearchApi,
-    getSongsApi,
-    callApi,
+    apiWrapper,
+    getArtistDetailsUsingArtistId,
+    getArtistSongsUsingArtistId,
+    getArtistSongsUsingArtistName,
+    getSongDetailsUsingSongId,
+    getLyricsApi,
+    getSongApi,
+    searchSongApi,
 } from '../utilities/apiHandler';
 import { useDispatch, useSelector } from 'react-redux';
 import { setArtistSong, setSearch, setArtist, setSongs } from '../redux';
 
 const Dashboard = () => {
     const dispatch = useDispatch();
-    const response = useSelector((state) => state.songs);
-    // const response = useSelector((state) => state.search);
+    const artistSong = useSelector((state) => state.artistSongs);
+    const artists = useSelector((state) => state.artist);
+    const search = useSelector((state) => state.search);
+    const songs = useSelector((state) => state.songs);
 
     useEffect(() => {
-        // callApi(
-        //     'https://genius.p.rapidapi.com/Ap-dhillon-brown-munde-lyrics'
-        // ).then((response) => {
-        //     console.log('👨‍🦳', response);
-        // });
+        const song = 'in the end';
+        const artist = 'linkin park';
+        const aid = 49719;
+        const sid = 2978797;
 
-        getSongsApi(300548)
-            .then((res) => dispatch(setSongs(res)))
-            .catch((err) => console.error(err));
-
-        // getSearchApi()
-        //     .then((res) => dispatch(setSearch(res)))
-        //     .catch((err) => console.error(err));
+        getArtistDetailsUsingArtistId(aid).then((response) => {
+            console.log(
+                '🚀 1  ❇️~ getArtistDetailsUsingArtistId ~ response',
+                response
+            );
+        });
+        getArtistSongsUsingArtistId(aid).then((response) => {
+            console.log(
+                '🚀2 ~ getArtistSongsUsingArtistId ~ response',
+                response
+            );
+        });
+        getArtistSongsUsingArtistName(artist).then((response) => {
+            console.log(
+                '🚀3 ~ getArtistSongsUsingArtistName ~ response',
+                response
+            );
+        });
+        getSongDetailsUsingSongId(sid).then((response) => {
+            console.log('🚀4 ~ getSongDetailsUsingSongId ~ response', response);
+        });
+        getLyricsApi(song, artist).then((response) => {
+            console.log('🚀5 ~ getLyricsApi ~ response', response);
+        });
+        getSongApi(song, artist).then((response) => {
+            console.log('🚀6 ~ getSongApi ~ response', response);
+        });
+        searchSongApi(song, artist).then((response) => {
+            console.log('🚀7 ~ searchSongApi ~ response', response);
+        });
     }, []);
 
     const SuccessSlider = styled(Slider)(({ theme }) => ({
@@ -65,20 +92,20 @@ const Dashboard = () => {
             <SuccessSlider defaultValue={30} />
             <StarIcon></StarIcon>
 
-            {response.response && (
+            {/* {response.response && (
                 <>
-                    {/* {Object.entries(response.response.hits[0].result).map(
+                    {Object.entries(response.response.hits[0].result).map(
                         ([key, value]) => {
                             // <div key={key}>{value}</div>
                             {
                                 console.table(key, value);
                             }
                         }
-                    )} */}
+                    )}
 
                     {console.log('👹', response.response)}
                 </>
-            )}
+            )} */}
         </Box>
     );
 };
