@@ -1,4 +1,4 @@
-# Music Fox
+# Music Fox 🎶
 
 Get the lyrics of your favourite songs, details about the artists and much more.
 
@@ -19,9 +19,7 @@ npm install @mui/material @emotion/react @emotion/styled @mui/icons-material
 ## Adding env to the project ([VITE DOCS](https://vitejs.dev/guide/env-and-mode.html))
 
 -   Create a new .env file in the root of the project
-
-> project/.env
-
+    > project/.env
 -   Create new variables starting with
     > VITE\_
 -   How to access it in code
