@@ -34,6 +34,6 @@ VITE_SOME_KEY=123
 
 > **Open 'Run' and type this to open a new instance of chrome with disabled same origin policy:**
 
-    `chrome.exe --user-data-dir="C://Chrome dev session" --disable-web-security`
+    chrome.exe --user-data-dir="C://Chrome dev session" --disable-web-security
 
 ## Build and Deployment
