@@ -1,6 +1,6 @@
 import Button from '@mui/material/Button';
 import StarIcon from '@mui/icons-material/Star';
-import { Box, Slider, Typography } from '@mui/material';
+import { Box, Slider, Typography, Input, TextField } from '@mui/material';
 import { alpha, styled } from '@mui/material/styles';
 import { useEffect } from 'react';
 import {
@@ -61,51 +61,19 @@ const Dashboard = () => {
         });
     }, []);
 
-    const SuccessSlider = styled(Slider)(({ theme }) => ({
-        width: 300,
-        color: theme.palette.success.main,
-        '& .MuiSlider-thumb': {
-            '&:hover, &.Mui-focusVisible': {
-                boxShadow: `0px 0px 0px 8px ${alpha(
-                    theme.palette.success.main,
-                    0.16
-                )}`,
-            },
-            '&.Mui-active': {
-                boxShadow: `0px 0px 0px 14px ${alpha(
-                    theme.palette.success.main,
-                    0.16
-                )}`,
-            },
-        },
-    }));
-
     return (
         <Box
             sx={{
-                border: '1px solid white',
                 display: 'flex',
                 flexDirection: 'column',
             }}
+            className="debug"
         >
+            <Typography variant="h1">Music Fox</Typography>
+
+            <TextField variant="outlined" label="Song Name" light />
+
             <Button variant="contained">Hello World</Button>
-            <SuccessSlider defaultValue={30} />
-            <StarIcon></StarIcon>
-
-            {/* {response.response && (
-                <>
-                    {Object.entries(response.response.hits[0].result).map(
-                        ([key, value]) => {
-                            // <div key={key}>{value}</div>
-                            {
-                                console.table(key, value);
-                            }
-                        }
-                    )}
-
-                    {console.log('👹', response.response)}
-                </>
-            )} */}
         </Box>
     );
 };

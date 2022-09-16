@@ -32,4 +32,6 @@ npm install @mui/material @emotion/react @emotion/styled @mui/icons-material
 VITE_SOME_KEY=123
 ```
 
+> **⚠️ You may get a CORS block error while testing on localhost. To bypass this, you need to disable Same-Origin Policy in your browser. You may follow the instructions [here](https://stackoverflow.com/questions/3102819/disable-same-origin-policy-in-chrome).**
+
 ## Build and Deployment
