@@ -3,7 +3,7 @@ import { Dashboard } from './components';
 
 function App() {
     return (
-        <Container fixed>
+        <Container>
             <Dashboard />
         </Container>
     );

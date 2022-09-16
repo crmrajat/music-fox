@@ -1,4 +1,6 @@
 import { getLyrics, getSong, searchSong } from 'genius-lyrics-api';
+import { startLoading, stopLoading } from '../redux';
+import store from '../redux/store';
 
 /**
  * This is the type of the options object that is used to call Genius API methods
@@ -14,7 +16,10 @@ import { getLyrics, getSong, searchSong } from 'genius-lyrics-api';
  */
 
 //  This function is wrapper for calling the RAPID API endpoint.
+
 const apiWrapper = (url) => {
+    store.dispatch(startLoading());
+
     const options = {
         method: 'GET',
         headers: {
@@ -25,8 +30,14 @@ const apiWrapper = (url) => {
 
     return fetch(url, options)
         .then((response) => response.json())
-        .then((response) => response)
-        .catch((err) => err);
+        .then((response) => {
+            store.dispatch(stopLoading());
+            return response;
+        })
+        .catch((err) => {
+            store.dispatch(stopLoading());
+            return err;
+        });
 };
 
 /**
@@ -67,6 +78,8 @@ const getSongDetailsUsingSongId = (songId) => {
  * Return lyrics about the matching song using songName and artistName
  */
 const getLyricsApi = (songName, artistName) => {
+    store.dispatch(startLoading());
+
     const options = {
         apiKey: import.meta.env.VITE_GENIUS_API_KEY,
         title: songName,
@@ -74,12 +87,22 @@ const getLyricsApi = (songName, artistName) => {
         optimizeQuery: true,
     };
 
-    return getLyrics(options).then((lyrics) => lyrics);
+    return getLyrics(options)
+        .then((res) => {
+            store.dispatch(stopLoading());
+            return res;
+        })
+        .catch((err) => {
+            store.dispatch(stopLoading());
+            return err;
+        });
 };
 /**
  *  Return more details about the matching song using songName and artistName
  */
 const getSongApi = (songName, artistName) => {
+    store.dispatch(startLoading());
+
     const options = {
         apiKey: import.meta.env.VITE_GENIUS_API_KEY,
         title: songName,
@@ -87,12 +110,22 @@ const getSongApi = (songName, artistName) => {
         optimizeQuery: true,
     };
 
-    return getSong(options).then((lyrics) => lyrics);
+    return getSong(options)
+        .then((res) => {
+            store.dispatch(stopLoading());
+            return res;
+        })
+        .catch((err) => {
+            store.dispatch(stopLoading());
+            return err;
+        });
 };
 /**
  * Return 10 matching songs details using songName and artistName
  */
 const searchSongApi = (songName, artistName) => {
+    store.dispatch(startLoading());
+
     const options = {
         apiKey: import.meta.env.VITE_GENIUS_API_KEY,
         title: songName,
@@ -100,7 +133,15 @@ const searchSongApi = (songName, artistName) => {
         optimizeQuery: true,
     };
 
-    return searchSong(options).then((lyrics) => lyrics);
+    return searchSong(options)
+        .then((res) => {
+            store.dispatch(stopLoading());
+            return res;
+        })
+        .catch((err) => {
+            store.dispatch(stopLoading());
+            return err;
+        });
 };
 
 export {
