@@ -15,7 +15,14 @@ import {
 } from '../utilities/apiHandler';
 import { useDispatch, useSelector } from 'react-redux';
 import { setArtistSong, setSearch, setArtist, setSongs } from '../redux';
-import { Homepage, SongItem, SongList, ItemNotFound, Loading } from './index';
+import {
+    Homepage,
+    SongItem,
+    SongList,
+    ItemNotFound,
+    SongProfile,
+    ArtistProfile,
+} from './index';
 
 const Dashboard = () => {
     const dispatch = useDispatch();
@@ -51,9 +58,9 @@ const Dashboard = () => {
         //     getSongDetailsUsingSongId(sid).then((response) => {
         //         console.log('🚀4 ~ getSongDetailsUsingSongId ~ response', response);
         //     });
-        getLyricsApi(song, artist).then((response) => {
-            console.log('🚀5 ~ getLyricsApi ~ response', response);
-        });
+        // getLyricsApi(song, artist).then((response) => {
+        //     console.log('🚀5 ~ getLyricsApi ~ response', response);
+        // });
         //     getSongApi(song, artist).then((response) => {
         //         console.log('🚀6 ~ getSongApi ~ response', response);
         //     });
@@ -73,7 +80,8 @@ const Dashboard = () => {
             <Homepage />
             <SongList />
             <ItemNotFound item="Song" />
-            <Loading />
+            <SongProfile />
+            <ArtistProfile />
         </Box>
     );
 };
