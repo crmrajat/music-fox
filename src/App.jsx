@@ -1,11 +1,13 @@
-import { Container } from '@mui/material';
-import { Dashboard, Loading } from './components';
+import { Container, Typography } from '@mui/material';
+import { Outlet } from 'react-router-dom';
+import { Loading } from './components';
 
 function App() {
     return (
         <Container>
+            <Typography variant="h1">Music Fox</Typography>
+            <Outlet />
             <Loading />
-            <Dashboard />
         </Container>
     );
 }

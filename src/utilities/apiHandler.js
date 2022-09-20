@@ -36,7 +36,7 @@ const apiWrapper = (url) => {
         })
         .catch((err) => {
             store.dispatch(stopLoading());
-            return err;
+            return err.message;
         });
 };
 
@@ -94,7 +94,7 @@ const getLyricsApi = (songName, artistName) => {
         })
         .catch((err) => {
             store.dispatch(stopLoading());
-            return err;
+            return err.message;
         });
 };
 /**
@@ -117,7 +117,7 @@ const getSongApi = (songName, artistName) => {
         })
         .catch((err) => {
             store.dispatch(stopLoading());
-            return err;
+            return err.message;
         });
 };
 /**
@@ -140,7 +140,7 @@ const searchSongApi = (songName, artistName) => {
         })
         .catch((err) => {
             store.dispatch(stopLoading());
-            return err;
+            return err.message;
         });
 };
 

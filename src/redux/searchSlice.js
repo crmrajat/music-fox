@@ -3,8 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const searchSlice = createSlice({
     name: 'search',
     initialState: {
-        response: null,
-        meta: null,
+        response: [],
     },
     reducers: {
         // Redux Toolkit allows us to write "mutating" logic in reducers. It
@@ -12,8 +11,7 @@ export const searchSlice = createSlice({
         // which detects changes to a "draft state" and produces a brand new
         // immutable state based off those changes
         setSearch: (state, action) => {
-            state.response = action.payload.response;
-            state.meta = action.payload.meta;
+            state.response = action.payload;
         },
     },
 });

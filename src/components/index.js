@@ -1,5 +1,5 @@
 import Dashboard from './Dashboard';
-import Homepage from './Homepage';
+import Search from './Search';
 import SongItem from './SongItem';
 import SongList from './SongList';
 import ItemNotFound from './ItemNotFound';
@@ -8,7 +8,7 @@ import SongProfile from './SongProfile';
 import ArtistProfile from './ArtistProfile';
 
 export {
-    Homepage,
+    Search,
     Dashboard,
     SongItem,
     SongList,
