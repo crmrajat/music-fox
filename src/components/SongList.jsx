@@ -1,19 +1,26 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Grid from '@mui/material/Grid';
 import { SongItem } from './index';
 import { Button, Card, Typography, TextField } from '@mui/material';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const SongList = () => {
     const songs = [0, 0, 0, 0, 0, 0];
     const [getArtistNameFlag, setGetArtistNameFlag] = useState(true);
 
+    const songsList = useSelector((state) => state.search.response);
+    const navigate = useNavigate();
+
+    useEffect(() => {}, []);
+
     return (
         <>
             <Grid container spacing={2}>
-                {songs.map((item, index) => {
+                {songsList.map((item, index) => {
                     return (
-                        <Grid key={'song-' + index} item xs={12} sm={6} lg={4}>
-                            <SongItem />
+                        <Grid key={item.id} item xs={12} sm={6} lg={4}>
+                            <SongItem song={item} />
                         </Grid>
                     );
                 })}
@@ -21,7 +28,6 @@ const SongList = () => {
                     <Card
                         sx={{
                             display: 'flex',
-                            // flexDirection: 'column',
                             alignItems: 'center',
                             padding: 2,
                         }}
@@ -30,7 +36,13 @@ const SongList = () => {
                             Not found the song you were looking for ?
                         </Typography>
 
-                        <Button>Search Again</Button>
+                        <Button
+                            onClick={() => {
+                                navigate('/Dashboard');
+                            }}
+                        >
+                            Search Again
+                        </Button>
                     </Card>
                 </Grid>
             </Grid>

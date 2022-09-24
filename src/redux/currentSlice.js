@@ -4,7 +4,9 @@ export const currentSlice = createSlice({
     name: 'current',
     initialState: {
         songName: '',
+        songId: '',
         artistName: '',
+        artistId: '',
         lyrics: '',
         albumArt: '',
     },
@@ -16,8 +18,14 @@ export const currentSlice = createSlice({
         setCurrentSong: (state, action) => {
             state.songName = action.payload;
         },
+        setCurrentSongId: (state, action) => {
+            state.songId = action.payload;
+        },
         setCurrentArtist: (state, action) => {
             state.artistName = action.payload;
+        },
+        setCurrentArtistId: (state, action) => {
+            state.artistId = action.payload;
         },
         setCurrentLyrics: (state, action) => {
             state.lyrics = action.payload;
