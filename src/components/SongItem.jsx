@@ -14,7 +14,7 @@ const SongItem = (props) => {
         <Card>
             <CardActionArea
                 onClick={() => {
-                    console.log('👳‍♀️ Open the lyrics = ', song.title);
+                    console.log('👳‍♀️ Open the lyrics : ', song.title);
                 }}
                 sx={{
                     display: 'flex',
