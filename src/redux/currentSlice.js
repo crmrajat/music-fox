@@ -39,7 +39,9 @@ export const currentSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const {
     setCurrentSong,
+    setCurrentSongId,
     setCurrentArtist,
+    setCurrentArtistId,
     setCurrentLyrics,
     setCurrentArt,
 } = currentSlice.actions;

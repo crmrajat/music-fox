@@ -5,7 +5,9 @@ import { setSongs } from './songsSlice';
 import { startLoading, stopLoading } from './loadingSlice';
 import {
     setCurrentSong,
+    setCurrentSongId,
     setCurrentArtist,
+    setCurrentArtistId,
     setCurrentLyrics,
     setCurrentArt,
 } from './currentSlice';
@@ -18,7 +20,9 @@ export {
     startLoading,
     stopLoading,
     setCurrentSong,
+    setCurrentSongId,
     setCurrentArtist,
+    setCurrentArtistId,
     setCurrentLyrics,
     setCurrentArt,
 };

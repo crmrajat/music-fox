@@ -1,11 +1,19 @@
 import { Container, Typography } from '@mui/material';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { Loading } from './components';
 
 function App() {
+    const navigate = useNavigate();
     return (
         <Container>
-            <Typography variant="h1">Music Fox</Typography>
+            <Typography
+                variant="h1"
+                onClick={() => {
+                    navigate('/Dashboard');
+                }}
+            >
+                Music Fox
+            </Typography>
             <Outlet />
             <Loading />
         </Container>
