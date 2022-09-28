@@ -28,16 +28,8 @@ const SongItem = (props) => {
         <Card>
             <CardActionArea
                 onClick={() => {
-                    console.log('👳‍♀️ Open the lyrics : ', song.title);
-                    console.log('🤳', song);
-
                     // Get the details of the selected song
                     getSongDetailsUsingSongId(song.id).then((response) => {
-                        console.log(
-                            '🚀4 ~ getSongDetailsUsingSongId ~ response',
-                            response.response.song
-                        );
-
                         // Get the lyrics of the selected song
                         getLyricsApi(
                             response.response.song.title,
@@ -46,7 +38,6 @@ const SongItem = (props) => {
                             // Store the lyrics of the selected song in state storage
                             dispatch(setCurrentLyrics(response));
                         });
-
                         // Store the rest of the metadata for the selected song in state storage
                         dispatch(setCurrentSong(response.response.song.title));
                         dispatch(setCurrentSongId(song.id));
