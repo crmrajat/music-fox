@@ -10,8 +10,13 @@ import {
     setCurrentSongId,
     setCurrentArtist,
     setCurrentSong,
+    setCurrentArt,
+    setCurrentLyrics,
 } from '../redux';
-import { getSongDetailsUsingSongId } from '../utilities/apiHandler';
+import {
+    getLyricsApi,
+    getSongDetailsUsingSongId,
+} from '../utilities/apiHandler';
 
 const SongItem = (props) => {
     const [song, setSong] = useState(props.song);
@@ -25,13 +30,24 @@ const SongItem = (props) => {
                 onClick={() => {
                     console.log('👳‍♀️ Open the lyrics : ', song.title);
                     console.log('🤳', song);
+
+                    // Get the details of the selected song
                     getSongDetailsUsingSongId(song.id).then((response) => {
                         console.log(
                             '🚀4 ~ getSongDetailsUsingSongId ~ response',
-                            response.response.song.primary_artist.id
+                            response.response.song
                         );
 
-                        // Add the album art and lyrics to the current state
+                        // Get the lyrics of the selected song
+                        getLyricsApi(
+                            response.response.song.title,
+                            response.response.song.primary_artist.name
+                        ).then((response) => {
+                            // Store the lyrics of the selected song in state storage
+                            dispatch(setCurrentLyrics(response));
+                        });
+
+                        // Store the rest of the metadata for the selected song in state storage
                         dispatch(setCurrentSong(response.response.song.title));
                         dispatch(setCurrentSongId(song.id));
                         dispatch(
@@ -44,6 +60,7 @@ const SongItem = (props) => {
                                 response.response.song.primary_artist.id
                             )
                         );
+                        dispatch(setCurrentArt(song.albumArt));
                     });
                 }}
                 sx={{

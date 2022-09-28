@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { setCurrentArtist, setCurrentSong, setSearch } from '../redux';
-import { searchSongApi } from '../utilities/apiHandler';
+import { getSongApi, searchSongApi } from '../utilities/apiHandler';
 
 const Search = () => {
     const dispatch = useDispatch();
