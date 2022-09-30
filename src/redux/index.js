@@ -10,6 +10,7 @@ import {
     setCurrentArtistId,
     setCurrentLyrics,
     setCurrentArt,
+    setCurrent,
 } from './currentSlice';
 
 export {
@@ -25,4 +26,5 @@ export {
     setCurrentArtistId,
     setCurrentLyrics,
     setCurrentArt,
+    setCurrent,
 };

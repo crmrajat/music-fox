@@ -9,7 +9,8 @@ const ItemNotFound = ({ item }) => {
         <Card sx={{ maxWidth: 345, mx: 'auto', my: 2, display: 'flex' }}>
             <CardMedia
                 component="img"
-                height="160"
+                height="150"
+                width="150"
                 image="https://media1.giphy.com/media/zI2xxBtbAig6Y/giphy.gif?cid=ecf05e47et4o4jixpza7ac322ahemwin4q07gwcohdfokk4d"
                 sx={{ objectFit: 'cover' }}
                 alt="oops gif"

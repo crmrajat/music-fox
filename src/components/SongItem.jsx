@@ -5,6 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import {
     setCurrentArtistId,
     setCurrentSongId,
@@ -12,6 +13,7 @@ import {
     setCurrentSong,
     setCurrentArt,
     setCurrentLyrics,
+    setCurrent,
 } from '../redux';
 import {
     getLyricsApi,
@@ -21,6 +23,7 @@ import {
 const SongItem = (props) => {
     const [song, setSong] = useState(props.song);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     useEffect(() => {}, []);
 
@@ -30,29 +33,36 @@ const SongItem = (props) => {
                 onClick={() => {
                     // Get the details of the selected song
                     getSongDetailsUsingSongId(song.id).then((response) => {
-                        // Get the lyrics of the selected song
-                        getLyricsApi(
-                            response.response.song.title,
-                            response.response.song.primary_artist.name
-                        ).then((response) => {
-                            // Store the lyrics of the selected song in state storage
-                            dispatch(setCurrentLyrics(response));
-                        });
-                        // Store the rest of the metadata for the selected song in state storage
-                        dispatch(setCurrentSong(response.response.song.title));
-                        dispatch(setCurrentSongId(song.id));
-                        dispatch(
-                            setCurrentArtist(
-                                response.response.song.primary_artist.name
-                            )
-                        );
-                        dispatch(
-                            setCurrentArtistId(
-                                response.response.song.primary_artist.id
-                            )
-                        );
-                        dispatch(setCurrentArt(song.albumArt));
+                        // console.log(
+                        //     '🚀 ~ getSongDetailsUsingSongId ~ response',
+                        //     response
+                        // );
+                        // // Get the lyrics of the selected song
+                        // getLyricsApi(
+                        //     response.response.song.title,
+                        //     response.response.song.primary_artist.name
+                        // ).then((res) => {
+                        //     // Store the lyrics of the selected song in state storage
+                        //     dispatch(setCurrentLyrics(res));
+                        // });
+                        // // Store the rest of the metadata for the selected song in state storage
+                        // dispatch(setCurrentSong(response.response.song.title));
+                        // dispatch(setCurrentSongId(song.id));
+                        // dispatch(
+                        //     setCurrentArtist(
+                        //         response.response.song.primary_artist.name
+                        //     )
+                        // );
+                        // dispatch(
+                        //     setCurrentArtistId(
+                        //         response.response.song.primary_artist.id
+                        //     )
+                        // );
+                        // dispatch(setCurrentArt(song.albumArt));
+
+                        dispatch(setCurrent(response));
                     });
+                    navigate('/SongProfile');
                 }}
                 sx={{
                     display: 'flex',
@@ -64,8 +74,11 @@ const SongItem = (props) => {
                         variant="subtitle1"
                         color="text.secondary"
                         component="div"
+                        maxLength="20"
                     >
-                        {song.title}
+                        {song.title.length > 90
+                            ? song.title.substring(0, 90) + '...'
+                            : song.title}
                     </Typography>
                 </CardContent>
                 <CardMedia

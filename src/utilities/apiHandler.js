@@ -68,10 +68,22 @@ const getArtistSongsUsingArtistName = (artistName) => {
 };
 
 /**
- * Return details about the song using songId
+ * Return details about the song using songId and call the getLyricsApi implicitly.
  */
-const getSongDetailsUsingSongId = (songId) => {
-    return apiWrapper(`https://genius.p.rapidapi.com/songs/${songId}`);
+const getSongDetailsUsingSongId = async (songId) => {
+    const newResponse = await apiWrapper(
+        `https://genius.p.rapidapi.com/songs/${songId}`
+    );
+    const lyrics = await getLyricsApi(
+        newResponse.response.song.title,
+        newResponse.response.song.primary_artist.name
+    );
+
+    // Add new property lyrics to the response
+    newResponse.response.song.lyrics = lyrics;
+
+    return newResponse;
+    // return apiWrapper(`https://genius.p.rapidapi.com/songs/${songId}`);
 };
 
 /**

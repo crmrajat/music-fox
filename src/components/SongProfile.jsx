@@ -1,8 +1,18 @@
 import { Paper, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const SongProfile = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const current = useSelector((state) => state.current);
+
+    useEffect(() => {
+        console.log('🚀 ~ SongProfile ~ current', current);
+    }, []);
+
     return (
         <Paper sx={{ my: 2 }}>
             <Box
@@ -20,7 +30,7 @@ const SongProfile = () => {
                         maxWidth: { xs: 350, md: 350 },
                     }}
                     alt="album art"
-                    src="https://images.genius.com/99b120c80b19d34dc589096a98b2fabc.1000x1000x1.png"
+                    src={current.albumArt}
                 />
 
                 <Box
@@ -36,7 +46,7 @@ const SongProfile = () => {
                         color="text.primary"
                         fontWeight={600}
                     >
-                        Song Name
+                        {current.songName}
                     </Typography>
 
                     <Typography
@@ -45,7 +55,7 @@ const SongProfile = () => {
                         color="text.secondary"
                         fontWeight={500}
                     >
-                        Artist Name
+                        {current.artistName}
                     </Typography>
                 </Box>
             </Box>
@@ -66,8 +76,9 @@ const SongProfile = () => {
                     component="div"
                     variant="body1"
                     color="text.secondary"
+                    sx={{ whiteSpace: 'pre-line' }}
                 >
-                    Lyrics
+                    {current.lyrics}
                 </Typography>
             </Box>
         </Paper>
