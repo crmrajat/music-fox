@@ -26,25 +26,21 @@ export const currentSlice = createSlice({
 
         setCurrent: (state, action) => {
             const res = action.payload.response.song;
-            state = {
-                ...state,
-                songName: res.title,
-                songId: res.id,
-                artistName: res.primary_artist.name,
-                artistId: res.primary_artist.id,
-                lyrics: res.lyrics,
-                albumArt: res.song_art_image_url,
-                appleMusic: {
-                    id: res.apple_music_id,
-                    playerLink: res.apple_music_player_url,
-                },
-                featuredArtists: res.featured_artists,
-                primaryArtist: res.primary_artist,
-                releaseDateForDisplay: res.release_date_for_display,
-                stats: res.stats,
-            };
 
-            console.log('😹', state);
+            state.songName = res.title;
+            state.songId = res.id;
+            state.artistName = res.primary_artist.name;
+            state.artistId = res.primary_artist.id;
+            state.lyrics = res.lyrics;
+            state.albumArt = res.song_art_image_url;
+            state.featuredArtists = res.featured_artists;
+            state.primaryArtist = res.primary_artist;
+            state.releaseDateForDisplay = res.release_date_for_display;
+            state.stats = res.stats;
+            state.appleMusic = {
+                id: res.apple_music_id,
+                playerLink: res.apple_music_player_url,
+            };
         },
 
         setCurrentSong: (state, action) => {

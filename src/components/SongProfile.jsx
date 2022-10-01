@@ -58,6 +58,15 @@ const SongProfile = () => {
                         {current.artistName}
                     </Typography>
                 </Box>
+
+                <Box sx={{ flex: 1 }}>
+                    <iframe
+                        width="100%"
+                        height="100%"
+                        src={current.appleMusic.playerLink}
+                        frameborder="0"
+                    ></iframe>
+                </Box>
             </Box>
 
             <Box
