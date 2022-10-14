@@ -93,9 +93,9 @@ const Dashboard = () => {
             }}
         >
             <Search />
-            <ItemNotFound item="Song" />
             {/* 
             <SongList />
+            <ItemNotFound item="Song" />
             <SongProfile />
             <ArtistProfile />
              */}
