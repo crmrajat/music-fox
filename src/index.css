@@ -8,7 +8,8 @@
     /* background-color: #242424; */
 
     color: black;
-    background-color: #f8f8f8;
+    /* background-color: #f8f8f8; */
+    background-color: #F3F8EF;
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -17,6 +18,14 @@
     -webkit-text-size-adjust: 100%;
 }
 
-.debug{
+.debug {
     border: 1px solid #bada55;
+}
+
+html,
+body,
+#root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
 }

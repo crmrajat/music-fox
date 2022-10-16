@@ -1,6 +1,13 @@
 import Button from '@mui/material/Button';
 import StarIcon from '@mui/icons-material/Star';
-import { Box, Slider, Typography, Input, TextField } from '@mui/material';
+import {
+    Box,
+    Slider,
+    Typography,
+    Input,
+    TextField,
+    Container,
+} from '@mui/material';
 import { alpha, styled } from '@mui/material/styles';
 import { useEffect } from 'react';
 import {
@@ -89,9 +96,29 @@ const Dashboard = () => {
         <Box
             sx={{
                 display: 'flex',
+                width: '100%',
+                height: '100%',
                 flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
             }}
         >
+            <Box sx={{ display: 'flex' }}>
+                <Typography
+                    sx={{
+                        cursor: 'pointer',
+                        textAlign: 'center',
+                        fontWeight: 'regular',
+                    }}
+                    variant="h1"
+                    onClick={() => {
+                        navigate('/Dashboard');
+                    }}
+                >
+                    Music Fox
+                </Typography>
+            </Box>
+
             <Search />
             {/* 
             <SongList />

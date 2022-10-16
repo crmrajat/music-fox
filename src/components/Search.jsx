@@ -1,4 +1,4 @@
-import { Box, Button, TextField } from '@mui/material';
+import { Box, Button, Card, Container, TextField } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -36,8 +36,20 @@ const Search = () => {
     }, []);
 
     return (
-        <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }} my={2}>
+        <Card
+            sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 4,
+                padding: 8,
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '50%',
+            }}
+            my={2}
+        >
             <TextField
+                fullWidth
                 size="small"
                 label="Song Name"
                 value={inputValue.song}
@@ -46,11 +58,15 @@ const Search = () => {
                 }}
             />
             <TextField
+                fullWidth
                 size="small"
                 label="Artist Name"
                 value={inputValue.artist}
                 onChange={(e) => {
-                    setInputValue({ ...inputValue, artist: e.target.value });
+                    setInputValue({
+                        ...inputValue,
+                        artist: e.target.value,
+                    });
                 }}
             />
             <Button
@@ -63,7 +79,7 @@ const Search = () => {
             >
                 Search
             </Button>
-        </Box>
+        </Card>
     );
 };
 

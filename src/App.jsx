@@ -5,18 +5,16 @@ import { Loading } from './components';
 function App() {
     const navigate = useNavigate();
     return (
-        <Container>
-            <Box sx={{ display: 'flex' }}>
-                <Typography
-                    sx={{ cursor: 'pointer' }}
-                    variant="h1"
-                    onClick={() => {
-                        navigate('/Dashboard');
-                    }}
-                >
-                    Music Fox
-                </Typography>
-            </Box>
+        <Container
+            sx={{
+                // display: 'flex',
+                // flexDirection: 'column',
+                // justifyContent: 'center',
+                // alignItems: 'center',
+                height: '100%',
+                width: '100%',
+            }}
+        >
             <Outlet />
             <Loading />
         </Container>

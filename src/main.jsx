@@ -31,6 +31,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                     <Route path="Loading" element={<Loading />} />
                     <Route path="SongProfile" element={<SongProfile />} />
                     <Route path="ArtistProfile" element={<ArtistProfile />} />
+                    <Route path="*" element={<>Page Not Found</>} />
                 </Route>
             </Routes>
         </BrowserRouter>
