@@ -44,7 +44,6 @@ const Search = () => {
                 padding: 8,
                 alignItems: 'center',
                 justifyContent: 'center',
-                width: '50%',
             }}
             my={2}
         >

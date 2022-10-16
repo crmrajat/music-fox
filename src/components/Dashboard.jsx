@@ -95,12 +95,10 @@ const Dashboard = () => {
     return (
         <Box
             sx={{
+                height: '100vh',
                 display: 'flex',
-                width: '100%',
-                height: '100%',
                 flexDirection: 'column',
                 justifyContent: 'center',
-                alignItems: 'center',
             }}
         >
             <Box sx={{ display: 'flex' }}>

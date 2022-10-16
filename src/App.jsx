@@ -7,10 +7,10 @@ function App() {
     return (
         <Container
             sx={{
-                // display: 'flex',
-                // flexDirection: 'column',
-                // justifyContent: 'center',
-                // alignItems: 'center',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
                 height: '100%',
                 width: '100%',
             }}

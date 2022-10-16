@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import Grid from '@mui/material/Grid';
 import { SongItem } from './index';
-import { Button, Card, Typography, TextField } from '@mui/material';
+import {
+    Button,
+    Card,
+    Typography,
+    TextField,
+    Box,
+    Container,
+} from '@mui/material';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { ItemNotFound } from './index.js';
@@ -21,36 +28,60 @@ const SongList = () => {
     if (!songsList) return <ItemNotFound />;
 
     return (
-        <Grid container spacing={2}>
-            {songsList.map((item, index) => {
-                return (
-                    <Grid key={item.id} item xs={12} sm={6} lg={4}>
-                        <SongItem song={item} />
-                    </Grid>
-                );
-            })}
-            <Grid item xs={12}>
-                <Card
-                    sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        padding: 2,
-                    }}
-                >
-                    <Typography variant="body1">
-                        Not found the song you were looking for ?
-                    </Typography>
+        <Box
+            sx={{
+                height: '100%',
+            }}
+        >
+            <Typography
+                sx={{
+                    // cursor: 'pointer',
+                    textAlign: 'center',
+                    fontWeight: 'regular',
+                }}
+                variant="h1"
+                onClick={() => {
+                    // navigate('/Dashboard');
+                }}
+            >
+                Music Fox
+            </Typography>
 
-                    <Button
-                        onClick={() => {
-                            navigate('/Dashboard');
+            <Grid
+                container
+                spacing={2}
+                sx={{ justifyContent: 'center', my: 2 }}
+            >
+                {songsList.map((item, index) => {
+                    return (
+                        <Grid key={item.id} item xs={12} sm={6} lg={4}>
+                            <SongItem song={item} />
+                        </Grid>
+                    );
+                })}
+                <Grid item xs={12}>
+                    <Card
+                        sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            padding: 2,
                         }}
                     >
-                        Search Again
-                    </Button>
-                </Card>
+                        <Typography variant="body1">
+                            Not found the song you were looking for ?
+                        </Typography>
+
+                        <Button
+                            onClick={() => {
+                                navigate('/Dashboard');
+                            }}
+                        >
+                            Search Again
+                        </Button>
+                    </Card>
+                </Grid>
             </Grid>
-        </Grid>
+        </Box>
     );
 };
 
