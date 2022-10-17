@@ -104,13 +104,13 @@ const Dashboard = () => {
             <Box sx={{ display: 'flex' }}>
                 <Typography
                     sx={{
-                        cursor: 'pointer',
+                        // cursor: 'pointer',
                         textAlign: 'center',
                         fontWeight: 'regular',
                     }}
                     variant="h1"
                     onClick={() => {
-                        navigate('/Dashboard');
+                        // navigate('/Dashboard');
                     }}
                 >
                     Music Fox

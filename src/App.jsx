@@ -5,7 +5,7 @@ import { Loading } from './components';
 function App() {
     const navigate = useNavigate();
     return (
-        <Container
+        <Box
             sx={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -17,7 +17,7 @@ function App() {
         >
             <Outlet />
             <Loading />
-        </Container>
+        </Box>
     );
 }
 

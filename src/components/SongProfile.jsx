@@ -1,4 +1,4 @@
-import { Paper, Typography } from '@mui/material';
+import { Container, Grid, Paper, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,83 +14,105 @@ const SongProfile = () => {
     }, []);
 
     return (
-        <Paper sx={{ my: 2 }}>
-            <Box
-                sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                }}
-            >
-                <Box
-                    component="img"
-                    sx={{
-                        m: 2,
-                        borderRadius: 5,
-                        maxHeight: { xs: 233, md: 300 },
-                        maxWidth: { xs: 350, md: 350 },
-                    }}
-                    alt="album art"
-                    src={current.albumArt}
-                />
+        <Container>
+            <Paper>
+                <Grid container colSpacing={10}>
+                    <Grid item xs={12} mb={10} sx={{ border: 1 }}>
+                        <Box
+                            display="flex"
+                            alignItems="center"
+                            justifyContent="center"
+                            flexWrap="wrap"
+                            flexDirection="row"
+                            gap={4}
+                            padding={2}
+                            sx={{ border: 1 }}
+                        >
+                            <Box
+                                component="img"
+                                sx={{
+                                    borderRadius: 5,
+                                    maxHeight: { xs: 233, md: 300 },
+                                    maxWidth: { xs: 350, md: 350 },
+                                }}
+                                alt="album art"
+                                src={current.albumArt}
+                            />
+                            <Typography
+                                variant="h3"
+                                color="text.primary"
+                                fontWeight={600}
+                                sx={{
+                                    display: 'flex',
+                                    flex: 1,
+                                    justifyContent: 'center',
+                                }}
+                            >
+                                {current.songName}
+                            </Typography>
+                        </Box>
+                    </Grid>
+                    <Grid item xs={12} md={8} sx={{ border: 1 }}>
+                        <Box
+                            display="flex"
+                            alignItems="center"
+                            flexDirection="column"
+                        >
+                            <Typography
+                                component="div"
+                                variant="h5"
+                                fontWeight={500}
+                            >
+                                Lyrics
+                            </Typography>
 
-                <Box
-                    sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        px: { xs: 0, sm: 2 },
-                    }}
-                >
-                    <Typography
-                        variant="h3"
-                        color="text.primary"
-                        fontWeight={600}
-                    >
-                        {current.songName}
-                    </Typography>
+                            <Typography
+                                component="div"
+                                variant="body1"
+                                color="text.secondary"
+                                sx={{ whiteSpace: 'pre-line' }}
+                            >
+                                {current.lyrics || 'Unknown'}
+                            </Typography>
+                        </Box>
+                    </Grid>
 
-                    <Typography
-                        component="div"
-                        variant="h5"
-                        color="text.secondary"
-                        fontWeight={500}
-                    >
-                        {current.artistName}
-                    </Typography>
-                </Box>
-
-                <Box sx={{ flex: 1 }}>
-                    <iframe
-                        width="100%"
-                        height="100%"
-                        src={current.appleMusic.playerLink}
-                        frameborder="0"
-                    ></iframe>
-                </Box>
-            </Box>
-
-            <Box
-                sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    px: { xs: 0, sm: 2 },
-                }}
-            >
-                <Typography component="div" variant="h5" fontWeight={500}>
-                    Lyrics
-                </Typography>
-
-                <Typography
-                    component="div"
-                    variant="body1"
-                    color="text.secondary"
-                    sx={{ whiteSpace: 'pre-line' }}
-                >
-                    {current.lyrics}
-                </Typography>
-            </Box>
-        </Paper>
+                    <Grid item xs={12} md={4} sx={{ border: 1 }}>
+                        <Box
+                            display="flex"
+                            alignItems="center"
+                            flexDirection="column"
+                            gap={2}
+                        >
+                            <Typography
+                                component="div"
+                                variant="h5"
+                                fontWeight={500}
+                            >
+                                Primary Artist :{' '}
+                                {current?.primaryArtist?.name || 'Unknown'}
+                            </Typography>
+                            <Typography
+                                component="div"
+                                variant="h5"
+                                fontWeight={500}
+                            >
+                                Featured Artist :{' '}
+                                {current?.featuredArtist?.name || ' Unknown'}
+                            </Typography>
+                            <Typography
+                                component="div"
+                                variant="h5"
+                                fontWeight={500}
+                            >
+                                Release Date :{' '}
+                                {current?.releaseDateForDisplay || 'Unknown'}
+                            </Typography>
+                        </Box>
+                    </Grid>
+                </Grid>
+            </Paper>
+        </Container>
     );
 };
 

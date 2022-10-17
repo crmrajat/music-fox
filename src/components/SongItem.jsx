@@ -76,8 +76,8 @@ const SongItem = (props) => {
                         component="div"
                         maxLength="20"
                     >
-                        {song.title.length > 90
-                            ? song.title.substring(0, 90) + '...'
+                        {song.title.length > 70
+                            ? song.title.substring(0, 70) + '...'
                             : song.title}
                     </Typography>
                 </CardContent>
