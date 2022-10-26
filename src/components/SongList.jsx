@@ -12,12 +12,11 @@ import {
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { ItemNotFound } from './index.js';
+import AppTitle from './AppTitle';
 
 const SongList = () => {
-    const songs = [0, 0, 0, 0, 0, 0];
-    const [getArtistNameFlag, setGetArtistNameFlag] = useState(true);
-
     const songsList = useSelector((state) => state.search.response);
+    const current = useSelector((state) => state.current);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -25,7 +24,18 @@ const SongList = () => {
     }, []);
 
     // When song is not present in the database
-    if (!songsList) return <ItemNotFound />;
+    if (!songsList)
+        return (
+            <Box
+                sx={{
+                    height: '100%',
+                }}
+            >
+                <AppTitle showOnlyLogo={false} />
+
+                <ItemNotFound />
+            </Box>
+        );
 
     return (
         <Box
@@ -33,18 +43,17 @@ const SongList = () => {
                 height: '100%',
             }}
         >
+            <AppTitle showOnlyLogo={false} />
+
             <Typography
+                variant="h2"
+                color="text.primary"
                 sx={{
-                    // cursor: 'pointer',
+                    fontWeight: 300,
                     textAlign: 'center',
-                    fontWeight: 'regular',
-                }}
-                variant="h1"
-                onClick={() => {
-                    // navigate('/Dashboard');
                 }}
             >
-                Music Fox
+                Result
             </Typography>
 
             <Grid

@@ -39,6 +39,7 @@ import {
     SongProfile,
     ArtistProfile,
 } from './index';
+import AppTitle from './AppTitle';
 
 const Dashboard = () => {
     const dispatch = useDispatch();
@@ -50,47 +51,47 @@ const Dashboard = () => {
     const current = useSelector((state) => state.current);
 
     useEffect(() => {
-        console.log('🚀 ~ useEffect ~ current', current);
+        // console.log('🚀 ~ useEffect ~ current', current);
     }, [current]);
 
-    // useEffect(() => {
-    //     const song = 'in the end';
-    //     const artist = 'linkin park';
-    //     const aid = 49719;
-    //     const sid = 2978797;
-    //     getArtistDetailsUsingArtistId(aid).then((response) => {
-    //         console.log(
-    //             '🚀 1  ❇️~ getArtistDetailsUsingArtistId ~ response',
-    //             response
-    //         );
-    //     });
-    //     getArtistSongsUsingArtistId(aid).then((response) => {
-    //         console.log(
-    //             '🚀2 ~ getArtistSongsUsingArtistId ~ response',
-    //             response
-    //         );
-    //     });
-    //     getArtistSongsUsingArtistName(artist).then((response) => {
-    //         console.log(
-    //             '🚀3 ~ getArtistSongsUsingArtistName ~ response',
-    //             response
-    //         );
-    //     });
-    //     getSongDetailsUsingSongId(sid).then((response) => {
-    //         console.log('🚀4 ~ getSongDetailsUsingSongId ~ response', response);
+    useEffect(() => {
+        //     const song = 'in the end';
+        //     const artist = 'linkin park';
+        const aid = 2242064;
+        //     const sid = 2978797;
+        //     getArtistDetailsUsingArtistId(aid).then((response) => {
+        //         console.log(
+        //             '🚀 1  ❇️~ getArtistDetailsUsingArtistId ~ response',
+        //             response
+        //         );
+        //     });
+        // getArtistSongsUsingArtistId(aid).then((response) => {
+        //     console.log(
+        //         '🚀2 ~ getArtistSongsUsingArtistId ~ response',
+        //         response
+        //     );
+        // });
+        //     getArtistSongsUsingArtistName(artist).then((response) => {
+        //         console.log(
+        //             '🚀3 ~ getArtistSongsUsingArtistName ~ response',
+        //             response
+        //         );
+        //     });
+        //     getSongDetailsUsingSongId(sid).then((response) => {
+        //         console.log('🚀4 ~ getSongDetailsUsingSongId ~ response', response);
 
-    //         dispatch(setCurrentSong(response.response.song.title));
-    //     });
-    //     getLyricsApi(song, artist).then((response) => {
-    //         console.log('🚀5 ~ getLyricsApi ~ response', response);
-    //     });
-    //     getSongApi(song, artist).then((response) => {
-    //         console.log('🚀6 ~ getSongApi ~ response', response);
-    //     });
-    //     searchSongApi(song, artist).then((response) => {
-    //         console.log('🚀7 ~ searchSongApi ~ response', response);
-    //     });
-    // }, []);
+        //         dispatch(setCurrentSong(response.response.song.title));
+        //     });
+        //     getLyricsApi(song, artist).then((response) => {
+        //         console.log('🚀5 ~ getLyricsApi ~ response', response);
+        //     });
+        //     getSongApi(song, artist).then((response) => {
+        //         console.log('🚀6 ~ getSongApi ~ response', response);
+        //     });
+        //     searchSongApi(song, artist).then((response) => {
+        //         console.log('🚀7 ~ searchSongApi ~ response', response);
+        //     });
+    }, []);
 
     return (
         <Box
@@ -101,29 +102,8 @@ const Dashboard = () => {
                 justifyContent: 'center',
             }}
         >
-            <Box sx={{ display: 'flex' }}>
-                <Typography
-                    sx={{
-                        // cursor: 'pointer',
-                        textAlign: 'center',
-                        fontWeight: 'regular',
-                    }}
-                    variant="h1"
-                    onClick={() => {
-                        // navigate('/Dashboard');
-                    }}
-                >
-                    Music Fox
-                </Typography>
-            </Box>
-
+            <AppTitle showOnlyLogo={false} />
             <Search />
-            {/* 
-            <SongList />
-            <ItemNotFound item="Song" />
-            <SongProfile />
-            <ArtistProfile />
-             */}
         </Box>
     );
 };

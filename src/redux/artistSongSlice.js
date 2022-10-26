@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { map } from 'lodash';
 
 export const artistSongsSlice = createSlice({
     name: 'artistSongs',
     initialState: {
-        response: null,
-        meta: null,
+        songs: null,
     },
     reducers: {
         // Redux Toolkit allows us to write "mutating" logic in reducers. It
@@ -12,8 +12,14 @@ export const artistSongsSlice = createSlice({
         // which detects changes to a "draft state" and produces a brand new
         // immutable state based off those changes
         setArtistSong: (state, action) => {
-            state.response = action.payload.response;
-            state.meta = action.payload.meta;
+            state.songs = [
+                ...action.payload.response.songs.map((el) => ({
+                    id: el.id,
+                    title: el.title,
+                    albumArt: el.song_art_image_url,
+                    url: el.url,
+                })),
+            ];
         },
     },
 });

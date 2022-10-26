@@ -33,33 +33,6 @@ const SongItem = (props) => {
                 onClick={() => {
                     // Get the details of the selected song
                     getSongDetailsUsingSongId(song.id).then((response) => {
-                        // console.log(
-                        //     '🚀 ~ getSongDetailsUsingSongId ~ response',
-                        //     response
-                        // );
-                        // // Get the lyrics of the selected song
-                        // getLyricsApi(
-                        //     response.response.song.title,
-                        //     response.response.song.primary_artist.name
-                        // ).then((res) => {
-                        //     // Store the lyrics of the selected song in state storage
-                        //     dispatch(setCurrentLyrics(res));
-                        // });
-                        // // Store the rest of the metadata for the selected song in state storage
-                        // dispatch(setCurrentSong(response.response.song.title));
-                        // dispatch(setCurrentSongId(song.id));
-                        // dispatch(
-                        //     setCurrentArtist(
-                        //         response.response.song.primary_artist.name
-                        //     )
-                        // );
-                        // dispatch(
-                        //     setCurrentArtistId(
-                        //         response.response.song.primary_artist.id
-                        //     )
-                        // );
-                        // dispatch(setCurrentArt(song.albumArt));
-
                         dispatch(setCurrent(response));
                     });
                     navigate('/SongProfile');

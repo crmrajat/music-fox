@@ -4,8 +4,8 @@
     font-weight: 400;
 
     color-scheme: light dark;
-    color: black;
-    background-color: #F3F8EF;
+    color: #2b2d42;
+    background-color: #edf2f4;
 
     font-synthesis: none;
     box-sizing: border-box;
@@ -13,10 +13,11 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
+    transition:all 100 ease-in-out;
 }
 
 .debug {
-    border: 1px solid #bada55;
+    border: 1px solid #d90429;
 }
 
 body{
