@@ -57,7 +57,7 @@ const Dashboard = () => {
     useEffect(() => {
         //     const song = 'in the end';
         //     const artist = 'linkin park';
-        const aid = 2242064;
+        // const aid = 2242064;
         //     const sid = 2978797;
         //     getArtistDetailsUsingArtistId(aid).then((response) => {
         //         console.log(
@@ -79,7 +79,6 @@ const Dashboard = () => {
         //     });
         //     getSongDetailsUsingSongId(sid).then((response) => {
         //         console.log('🚀4 ~ getSongDetailsUsingSongId ~ response', response);
-
         //         dispatch(setCurrentSong(response.response.song.title));
         //     });
         //     getLyricsApi(song, artist).then((response) => {
