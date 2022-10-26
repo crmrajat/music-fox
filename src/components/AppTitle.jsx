@@ -15,10 +15,24 @@ const AppTitle = (props) => {
             }}
         >
             {props.showOnlyLogo === true ? (
-                <LibraryMusicIcon sx={{ fontSize: 80, color: '#2b2d42' }} />
+                <LibraryMusicIcon
+                    sx={{ fontSize: 80, color: '#2b2d42', cursor: 'pointer' }}
+                    onClick={() => {
+                        navigate('/Dashboard');
+                    }}
+                />
             ) : (
                 <>
-                    <LibraryMusicIcon sx={{ fontSize: 80, color: '#2b2d42' }} />
+                    <LibraryMusicIcon
+                        sx={{
+                            fontSize: 80,
+                            color: '#2b2d42',
+                            cursor: 'pointer',
+                        }}
+                        onClick={() => {
+                            navigate('/Dashboard');
+                        }}
+                    />
                     <Typography
                         sx={{
                             width: 'max-content',

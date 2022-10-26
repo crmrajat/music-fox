@@ -51,9 +51,10 @@ const SongList = () => {
                 sx={{
                     fontWeight: 300,
                     textAlign: 'center',
+                    my: 4,
                 }}
             >
-                Result
+                Search Result
             </Typography>
 
             <Grid

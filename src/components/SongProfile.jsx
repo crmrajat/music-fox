@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { setArtistSong } from '../redux';
 import { getArtistSongsUsingArtistId } from '../utilities/apiHandler';
+import AppTitle from './AppTitle';
 
 const SongProfile = () => {
     const dispatch = useDispatch();
@@ -18,21 +19,9 @@ const SongProfile = () => {
 
     return (
         <Container>
-            <Typography
-                sx={{
-                    width: 'max-content',
-                    fontWeight: 300,
-                    cursor: 'pointer',
-                    mb: 4,
-                }}
-                variant="h1"
-                onClick={() => {
-                    navigate('/Dashboard');
-                }}
-            >
-                Music Fox
-            </Typography>
-            <Paper>
+            <AppTitle showOnlyLogo={false} />
+
+            <Paper sx={{ mt: 4 }}>
                 <Grid container>
                     <Grid item xs={12} mb={10}>
                         <Box
