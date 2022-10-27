@@ -101,7 +101,7 @@ const Dashboard = () => {
                 justifyContent: 'center',
             }}
         >
-            <AppTitle showOnlyLogo={false} />
+            <AppTitle showOnlyLogo={false} isStatic={true} />
             <Search />
         </Box>
     );

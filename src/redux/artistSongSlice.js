@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { map } from 'lodash';
 
 export const artistSongsSlice = createSlice({
     name: 'artistSongs',

@@ -39,6 +39,14 @@ const AppTitle = (props) => {
                             fontWeight: 200,
                             fontSize: 80,
                             cursor: 'pointer',
+                            '&:hover':
+                                props.isStatic === true
+                                    ? ''
+                                    : {
+                                          fontWeight: 800,
+                                          letterSpacing: 8,
+                                          transition: 'all .3s ease-in-out',
+                                      },
                         }}
                         onClick={() => {
                             navigate('/Dashboard');

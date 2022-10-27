@@ -58,29 +58,22 @@ const SongProfile = () => {
                             </Typography>
                         </Box>
                     </Grid>
-                    <Grid item xs={12} md={8} mb={10} px={2}>
+                    <Grid item xs={12} md={8} mb={10} px={10}>
                         <Box
                             display="flex"
                             alignItems="center"
                             flexDirection="column"
                         >
-                            <Typography
-                                component="div"
-                                variant="h3"
-                                fontWeight={300}
-                                mb={4}
-                            >
+                            <Typography variant="h3" fontWeight={300} mb={4}>
                                 Lyrics
                             </Typography>
 
                             <Typography
-                                component="div"
-                                variant="h6"
-                                color="text.secondary"
                                 sx={{
                                     whiteSpace: 'pre-line',
-                                    fontWeight: 400,
                                     letterSpacing: 1.4,
+                                    fontSize: 20,
+                                    fontWeight: 300,
                                 }}
                             >
                                 {current.lyrics || 'Unknown'}
@@ -114,15 +107,10 @@ const SongProfile = () => {
                                         },
                                     }}
                                     onClick={() => {
-                                        console.log('👩‍👩‍👧‍👦');
                                         getArtistSongsUsingArtistId(
                                             current.artistId
                                         ).then((response) => {
                                             dispatch(setArtistSong(response));
-                                            console.log(
-                                                '🚀2 ~ getArtistSongsUsingArtistId ~ response',
-                                                response
-                                            );
                                             navigate('/ArtistProfile');
                                         });
                                     }}
