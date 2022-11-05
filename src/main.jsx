@@ -19,9 +19,9 @@ import store from './redux/store';
 ReactDOM.createRoot(document.getElementById('root')).render(
     //<React.StrictMode>
     <Provider store={store}>
-        <BrowserRouter>
+        <BrowserRouter basename="/music-fox">
             <Routes>
-                <Route exact path="/music-fox" element={<App />}>
+                <Route exact path="/" element={<App />}>
                     <Route path="" element={<Navigate to="Dashboard" />} />
                     <Route path="Dashboard" element={<Dashboard />} />
                     <Route path="Search" element={<Search />} />
