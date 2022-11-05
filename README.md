@@ -50,6 +50,15 @@ npm install gh-pages --save-dev
 
     > https://github.com/rafgraph/spa-github-pages
 
+-Basic Instructions in this guide to fix my endpoints giving the default github 404 page upon refreshing of pages that weren't the root page. I placed the <script></script> inside my 404.html file and put it inside the public folder. Then I added the redirect script into the head of the index.html file.
+
+To display my custom 404 page (PageNotFound.js) I imported Navigate from react-router-dom, and inputted these two routes to App.js:
+
+```
+<Route path='/404' element={<PageNotFound/>} />
+<Route path='*' element={<Navigate replace to='/404'/>} />
+```
+
 -   Go to your `vite.config.js` file. And add your base url to it.
 
     > export default defineConfig({
