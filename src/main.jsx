@@ -21,7 +21,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Provider store={store}>
         <BrowserRouter>
             <Routes>
-                <Route exact path="/" element={<App />}>
+                <Route exact path="/music-fox" element={<App />}>
                     <Route path="" element={<Navigate to="Dashboard" />} />
                     <Route path="Dashboard" element={<Dashboard />} />
                     <Route path="Search" element={<Search />} />

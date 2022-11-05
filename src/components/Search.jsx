@@ -25,9 +25,9 @@ const Search = () => {
         dispatch(setCurrentArtist(data.artist));
         // Search for the songs
         searchSongApi(data.song, data.artist).then((response) => {
-            console.log('🚀 ~ searchSongApi ~ response', response);
+            // console.log('🚀 ~ searchSongApi ~ response', response);
             dispatch(setSearch(response));
-            navigate('/SongList');
+            navigate('../SongList');
         });
     };
 

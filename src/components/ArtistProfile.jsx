@@ -22,7 +22,7 @@ const ArtistProfile = () => {
     const songsList = useSelector((state) => state.artistSongs.songs);
 
     useEffect(() => {
-        console.log('🚀 ~ SongProfile ~ cusongListrrent', songsList);
+        // console.log('🚀 ~ SongProfile ~ cusongListrrent', songsList);
     }, []);
 
     return (

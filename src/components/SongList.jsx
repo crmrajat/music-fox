@@ -20,7 +20,7 @@ const SongList = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        console.log('🚀 ~ SongList ~ songsList', songsList);
+        // console.log('🚀 ~ SongList ~ songsList', songsList);
     }, []);
 
     // When song is not present in the database
@@ -83,7 +83,7 @@ const SongList = () => {
 
                         <Button
                             onClick={() => {
-                                navigate('/Dashboard');
+                                navigate('../Dashboard');
                             }}
                         >
                             Search Again

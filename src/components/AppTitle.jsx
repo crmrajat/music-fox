@@ -18,7 +18,7 @@ const AppTitle = (props) => {
                 <LibraryMusicIcon
                     sx={{ fontSize: 80, color: '#2b2d42', cursor: 'pointer' }}
                     onClick={() => {
-                        navigate('/Dashboard');
+                        navigate('../Dashboard');
                     }}
                 />
             ) : (
@@ -30,7 +30,7 @@ const AppTitle = (props) => {
                             cursor: 'pointer',
                         }}
                         onClick={() => {
-                            navigate('/Dashboard');
+                            navigate('../Dashboard');
                         }}
                     />
                     <Typography
@@ -49,7 +49,7 @@ const AppTitle = (props) => {
                                       },
                         }}
                         onClick={() => {
-                            navigate('/Dashboard');
+                            navigate('../Dashboard');
                         }}
                     >
                         Music Fox

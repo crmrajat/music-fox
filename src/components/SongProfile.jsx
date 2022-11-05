@@ -111,7 +111,7 @@ const SongProfile = () => {
                                             current.artistId
                                         ).then((response) => {
                                             dispatch(setArtistSong(response));
-                                            navigate('/ArtistProfile');
+                                            navigate('../ArtistProfile');
                                         });
                                     }}
                                 >

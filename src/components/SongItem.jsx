@@ -35,7 +35,7 @@ const SongItem = (props) => {
                     getSongDetailsUsingSongId(song.id).then((response) => {
                         dispatch(setCurrent(response));
                     });
-                    navigate('/SongProfile');
+                    navigate('../SongProfile');
                 }}
                 sx={{
                     display: 'flex',
