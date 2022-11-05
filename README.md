@@ -46,6 +46,10 @@ npm install gh-pages --save-dev
 
 🚩 Follow this when deploying for the first time
 
+-   Setup Single Page Apps for GitHub Pages
+
+    > https://github.com/rafgraph/spa-github-pages
+
 -   Go to your `vite.config.js` file. And add your base url to it.
 
     > export default defineConfig({
