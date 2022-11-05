@@ -53,6 +53,10 @@ npm install gh-pages --save-dev
     > plugins: [react()],
     > });
 
+-   Create deployment script for future deployment in package.json
+
+    > "deploy":"npm run build && git add dist -f && git commit -m'hosting' && git subtree push --prefix dist origin gh-pages"
+
 -   Now build the project
 
     > npm run build
